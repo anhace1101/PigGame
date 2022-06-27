@@ -74,16 +74,24 @@ btnHold.addEventListener("click", function () {
     switchPlayer();
   }
 });
-
+// reset game
 btnNew.addEventListener("click", function () {
   //set all score = 0
   scores = [0, 0];
   currentScore = 0;
   score0El.textContent = scores[0];
   score1El.textContent = scores[1];
-  activePlayer =0;
+  activePlayer = 0;
   current0El.textContent = 0;
   current1El.textContent = 0;
+  // remove win background
+  document.querySelector(`.player--0`).classList.remove("player--winner");
+  document.querySelector(`.player--1`).classList.remove("player--winner");
+  // remove active background
+  document.querySelector(`.player--1`).classList.remove("player--active");
+  //add active background for player 0
+  document.querySelector(`.player--0`).classList.add("player--active");
+  // display hold and roll btn
   btnHold.classList.remove("hidden");
   btnRoll.classList.remove("hidden");
   document
